@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:coffee_app/my_router.dart';
 import 'package:coffee_app/src/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
+      onGenerateRoute: MyRouter.generate,
+
+      initialRoute: HomePage.routeName,
 
       theme: ThemeData(
         useMaterial3: true,
@@ -31,7 +36,6 @@ class App extends StatelessWidget {
 
         navigationBarTheme: const NavigationBarThemeData(
           backgroundColor: Colors.transparent,
-          // indicatorColor: Constants.mainAppColor,
           indicatorColor: Colors.transparent,
           surfaceTintColor: Constants.backgroundColor,
           iconTheme: MaterialStatePropertyAll(

@@ -1,12 +1,7 @@
-import 'dart:developer';
-
-import 'package:coffee_app/src/components/product_tile_full_width.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
-import '../../model/product.dart';
-import '../../service/product_service.dart';
 import './components/menu_button.dart';
 import './components/appbar_user_action.dart';
 import './components/product_category_list.dart';
@@ -15,6 +10,8 @@ import 'components/special_product_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  static const String routeName = '/home';
 
   @override
   State<HomePage> createState() => _HomePageState();
