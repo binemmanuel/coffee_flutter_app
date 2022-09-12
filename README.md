@@ -9,4 +9,4 @@ flutter pub get
 flutter run
 ```
 
-![Alt text](/screenshots/home-page.png)
+![Home Page Screenshot](/screenshots/home-page.png)
