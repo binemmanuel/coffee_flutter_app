@@ -9,7 +9,6 @@ flutter pub get
 flutter run
 ```
 
-![Home Page Screenshot](/screenshots/home-page.png)
+<img src="/screenshots/home-page.png" alt='Home Page Screenshot' width="100">
 
-<!-- ![Home Page Screenshot](/screenshots/product-details-page.png) -->
-<img src="/screenshots/product-details-page.png" width="50">
+<img src="/screenshots/product-details-page.png" alt='Product Details Page Screenshot'width="100">
