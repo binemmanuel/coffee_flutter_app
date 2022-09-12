@@ -12,5 +12,7 @@ flutter run
 <p align="center">
 <img src="/screenshots/home-page.png" alt='Home Page Screenshot' width="200"/>
 
+&nbsp;&nbsp;
+
 <img src="/screenshots/product-details-page.png" alt='Product Details Page Screenshot' width="200"/>
 </p>
