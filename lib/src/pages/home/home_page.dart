@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
+import '../../constants.dart';
 import './components/menu_button.dart';
 import './components/appbar_user_action.dart';
 import './components/product_category_list.dart';
@@ -28,7 +29,14 @@ class _HomePageState extends State<HomePage> {
 
         leading: Padding(
           padding: const EdgeInsets.only(left: 10.0),
-          child: MenuButton(onTap: () {}),
+          child: MenuButton(
+            onTap: () {},
+            removeMaterialColor: true,
+            icon: const Icon(
+              Ionicons.grid_outline,
+              color: Constants.iconColor,
+            ),
+          ),
         ),
 
         // User Icon
@@ -63,6 +71,8 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: size.height * 0.035),
 
             const SpecialProductList(),
+
+            SizedBox(height: size.height * 0.035),
           ],
         ),
       ),

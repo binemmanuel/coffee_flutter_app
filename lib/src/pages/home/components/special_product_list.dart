@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:coffee_app/src/pages/product_details/product_details.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/product_tile_full_width.dart';
@@ -46,7 +47,16 @@ class _SpecialProductListState extends State<SpecialProductList> {
             itemBuilder: (BuildContext context, int index) {
               final product = demoProducts[index];
 
-              return ProductTileFullWidth(onTap: () {}, product: product);
+              return ProductTileFullWidth(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    ProductDetails.routeName,
+                    arguments: product,
+                  );
+                },
+                product: product,
+              );
             },
           ),
         ),

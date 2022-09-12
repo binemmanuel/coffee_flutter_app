@@ -46,15 +46,18 @@ class ProductTile extends StatelessWidget {
                 ),
                 child: Stack(
                   children: [
-                    Container(
-                      width: double.infinity,
-                      height: size.height * 0.18,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: CachedNetworkImageProvider(
-                            product.featuredImage!,
+                    Hero(
+                      tag: product.id,
+                      child: Container(
+                        width: double.infinity,
+                        height: size.height * 0.18,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: CachedNetworkImageProvider(
+                              product.featuredImage!,
+                            ),
                           ),
                         ),
                       ),

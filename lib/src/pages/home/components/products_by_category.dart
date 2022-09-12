@@ -1,3 +1,4 @@
+import 'package:coffee_app/src/pages/product_details/product_details.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/product_tile.dart';
@@ -38,9 +39,9 @@ class ProductsByCategory extends StatelessWidget {
                 final product = products[index];
 
                 return ProductTile(
-                  onTap: () {
-                    ///TODO: Navigate to the product details page
-                  },
+                  onTap: () => Navigator.pushNamed(
+                      context, ProductDetails.routeName,
+                      arguments: product),
                   product: product,
                 );
               },

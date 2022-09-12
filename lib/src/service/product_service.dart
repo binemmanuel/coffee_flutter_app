@@ -3,6 +3,7 @@ import 'package:coffee_app/src/model/product.dart';
 class ProductService {
   static List<Product> get demoProducts => [
         Product(
+          id: 1,
           title: 'Cappuccino',
           subtitle: 'With Oat Milk',
           category: 'cappuccino',
@@ -11,8 +12,12 @@ class ProductService {
           images: [],
           price: 40.3,
           rate: 3.5,
+          description:
+              'A cappuccino is a coffee-based drink made primarily from espresso and milk',
+          sizes: ['S', 'M', 'L'],
         ),
         Product(
+          id: 2,
           title: 'Cappuccino',
           subtitle: 'With Chocolate',
           category: 'cappuccino',
@@ -21,8 +26,12 @@ class ProductService {
           images: [],
           price: 50.5,
           rate: 4.5,
+          description:
+              'A cappuccino is a coffee-based drink made primarily from espresso and milk',
+          sizes: ['S', 'M', 'L'],
         ),
         Product(
+          id: 3,
           title: 'Cappuccino',
           subtitle: 'With Oat Milk',
           category: 'cappuccino',
@@ -31,8 +40,12 @@ class ProductService {
           images: [],
           price: 40.3,
           rate: 3.5,
+          description:
+              'A cappuccino is a coffee-based drink made primarily from espresso and milk',
+          sizes: ['S', 'M', 'L'],
         ),
         Product(
+          id: 4,
           title: 'Cappuccino',
           subtitle: 'With Chocolate',
           category: 'cappuccino',
@@ -41,6 +54,9 @@ class ProductService {
           images: [],
           price: 50.5,
           rate: 4.5,
+          description:
+              'A cappuccino is a coffee-based drink made primarily from espresso and milk',
+          sizes: ['S', 'M', 'L'],
         ),
       ];
 

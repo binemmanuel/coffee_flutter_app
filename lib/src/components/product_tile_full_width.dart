@@ -38,64 +38,67 @@ class ProductTileFullWidth extends StatelessWidget {
           child: Row(
             children: [
               // Featured Image
-              Container(
-                clipBehavior: Clip.hardEdge,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Stack(
-                  children: [
-                    // Image
-                    Container(
-                      width: size.width * 0.4,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: CachedNetworkImageProvider(
-                            product.featuredImage!,
+              Hero(
+                tag: 'special-${product.id}',
+                child: Container(
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Stack(
+                    children: [
+                      // Image
+                      Container(
+                        width: size.width * 0.4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: CachedNetworkImageProvider(
+                              product.featuredImage!,
+                            ),
                           ),
                         ),
                       ),
-                    ),
 
-                    // Rate
-                    Positioned(
-                      right: 0,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 4,
-                        ),
-                        decoration: const BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(20),
+                      // Rate
+                      Positioned(
+                        right: 0,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 4,
+                          ),
+                          decoration: const BoxDecoration(
+                            color: Colors.black54,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.star,
+                                color: Colors.orange,
+                                size: 15,
+                              ),
+
+                              const SizedBox(width: 5),
+
+                              // Rate
+                              Text(
+                                '${product.rate}',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline6!
+                                    .copyWith(fontSize: 15),
+                              ),
+                            ],
                           ),
                         ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.star,
-                              color: Colors.orange,
-                              size: 15,
-                            ),
-
-                            const SizedBox(width: 5),
-
-                            // Rate
-                            Text(
-                              '${product.rate}',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(fontSize: 15),
-                            ),
-                          ],
-                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
 
