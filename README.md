@@ -14,3 +14,6 @@ flutter run
 
 <img src="/screenshots/product-details-page.png" alt='Product Details Page Screenshot' width="200"/>
 </p>
+
+#### The credits goes to
+https://dribbble.com/shots/15475209-Coffee-Shop-Mobile-Apps-Dark-Mode
