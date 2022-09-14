@@ -32,7 +32,7 @@ class ProductTag extends StatelessWidget {
               title,
               style: Theme.of(context)
                   .textTheme
-                  .headline6!
+                  .titleLarge!
                   .copyWith(fontSize: 14, color: Colors.white.withOpacity(0.9)),
             ),
           ],

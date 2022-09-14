@@ -41,7 +41,7 @@ class CategoryOptions extends StatelessWidget {
                           '${category.title}',
                           style: Theme.of(context)
                               .textTheme
-                              .headline6!
+                              .titleLarge!
                               .copyWith(
                                 color: isSelected(category.type!)
                                     ? Constants.mainAppColor

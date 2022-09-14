@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               'Find the best \ncoffee for you',
               style: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .copyWith(fontSize: 40, fontWeight: FontWeight.bold),
             ),
 

@@ -26,7 +26,7 @@ class ProductsByCategory extends StatelessWidget {
                   'No item found for\n this category',
                   style: Theme.of(context)
                       .textTheme
-                      .headline1!
+                      .displayLarge!
                       .copyWith(fontSize: 17),
                   textAlign: TextAlign.center,
                 ),

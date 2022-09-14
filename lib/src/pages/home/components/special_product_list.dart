@@ -33,7 +33,7 @@ class _SpecialProductListState extends State<SpecialProductList> {
       children: [
         Text(
           'Special or you',
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
         ),
 
         SizedBox(height: size.height * 0.02),

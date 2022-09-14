@@ -133,13 +133,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                             children: [
                               Text(
                                 widget.product.title!,
-                                style: Theme.of(context).textTheme.headline4,
+                                style: Theme.of(context).textTheme.headlineMedium,
                               ),
                               Text(
                                 widget.product.subtitle!,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline5!
+                                    .headlineSmall!
                                     .copyWith(
                                         fontSize: 16, color: Colors.white54),
                               ),
@@ -161,14 +161,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                                         widget.product.rate.toString(),
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline5,
+                                            .headlineSmall,
                                       ),
                                       const SizedBox(width: 12),
                                       Text(
                                         '(${widget.product.rate})',
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline6!
+                                            .titleLarge!
                                             .copyWith(
                                                 color: Colors.white54,
                                                 fontSize: 15),
@@ -256,7 +256,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 'Price',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline6!
+                                    .titleLarge!
                                     .copyWith(
                                       fontSize: 14,
                                       color: Colors.white.withOpacity(0.7),
@@ -269,7 +269,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                       text: '\$ ',
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline6!
+                                          .titleLarge!
                                           .copyWith(
                                               color: Constants.mainAppColor),
                                     ),
@@ -277,7 +277,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                       text: widget.product.price.toString(),
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline6!
+                                          .titleLarge!
                                           .copyWith(color: Colors.white),
                                     ),
                                   ],
@@ -346,7 +346,7 @@ class MainButton extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: Theme.of(context).textTheme.headline6!.copyWith(
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

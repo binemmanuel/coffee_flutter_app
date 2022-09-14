@@ -90,7 +90,7 @@ class ProductTileFullWidth extends StatelessWidget {
                                 '${product.rate}',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline6!
+                                    .titleLarge!
                                     .copyWith(fontSize: 15),
                               ),
                             ],
@@ -119,7 +119,7 @@ class ProductTileFullWidth extends StatelessWidget {
                             product.title!,
                             style: Theme.of(context)
                                 .textTheme
-                                .headline6!
+                                .titleLarge!
                                 .copyWith(fontSize: 18),
                           ),
 
@@ -144,7 +144,7 @@ class ProductTileFullWidth extends StatelessWidget {
                                     '\$',
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headline6!
+                                        .titleLarge!
                                         .copyWith(
                                           fontSize: 22,
                                           color: Constants.mainAppColor,
@@ -157,7 +157,7 @@ class ProductTileFullWidth extends StatelessWidget {
                                     '${product.price}',
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headline6!
+                                        .titleLarge!
                                         .copyWith(fontSize: 22),
                                   ),
                                 ],

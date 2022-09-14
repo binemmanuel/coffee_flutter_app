@@ -21,7 +21,7 @@ class ProductDescription extends StatelessWidget {
           "Description",
           style: Theme.of(context)
               .textTheme
-              .headline6!
+              .titleLarge!
               .copyWith(fontSize: 18, color: Colors.white.withOpacity(0.7)),
         ),
         SizedBox(height: size.height * 0.015),
@@ -35,7 +35,7 @@ class ProductDescription extends StatelessWidget {
               ),
             ],
             style:
-                Theme.of(context).textTheme.headline6!.copyWith(fontSize: 17),
+                Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 17),
           ),
           maxLines: 2,
         ),

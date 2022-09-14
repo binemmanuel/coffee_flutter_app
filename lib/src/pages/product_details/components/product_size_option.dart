@@ -32,7 +32,7 @@ class ProductSizeOption extends StatelessWidget {
         ),
         child: Text(
           size,
-          style: Theme.of(context).textTheme.headline5!.copyWith(
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
               color: isSelected
                   ? Constants.mainAppColor
                   : Colors.white.withOpacity(0.8),

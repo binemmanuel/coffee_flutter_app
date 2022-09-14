@@ -24,7 +24,7 @@ class ProductSizeOptions extends StatelessWidget {
           'Size',
           style: Theme.of(context)
               .textTheme
-              .headline6!
+              .titleLarge!
               .copyWith(fontSize: 18, color: Colors.white.withOpacity(0.7)),
         ),
 

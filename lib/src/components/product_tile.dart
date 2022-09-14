@@ -92,7 +92,7 @@ class ProductTile extends StatelessWidget {
                               '${product.rate}',
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline6!
+                                  .titleLarge!
                                   .copyWith(fontSize: 15),
                             ),
                           ],
@@ -116,7 +116,7 @@ class ProductTile extends StatelessWidget {
                       product.title!,
                       style: Theme.of(context)
                           .textTheme
-                          .headline6!
+                          .titleLarge!
                           .copyWith(fontSize: 18),
                     ),
 
@@ -149,7 +149,7 @@ class ProductTile extends StatelessWidget {
                               '\$',
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline6!
+                                  .titleLarge!
                                   .copyWith(
                                     fontSize: 22,
                                     color: Constants.mainAppColor,
@@ -160,7 +160,7 @@ class ProductTile extends StatelessWidget {
                               '${product.price}',
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline6!
+                                  .titleLarge!
                                   .copyWith(fontSize: 22),
                             ),
                           ],
