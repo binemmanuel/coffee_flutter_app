@@ -19,18 +19,20 @@ class App extends StatelessWidget {
       initialRoute: HomePage.routeName,
 
       theme: ThemeData(
+        primarySwatch: Colors.orange,
+
         useMaterial3: true,
 
-        primarySwatch: Colors.orange,
-        scaffoldBackgroundColor: const Color.fromARGB(255, 5, 9, 12),
+        // primarySwatch: Colors.orange,
+        // scaffoldBackgroundColor: const Color.fromARGB(255, 5, 9, 12),
 
         splashColor: Constants.backgroundColor,
 
         // App Bar styles
         appBarTheme: const AppBarTheme(
-          foregroundColor: Constants.mainAppColor,
+          foregroundColor: Constants.backgroundDarkColor,
           backgroundColor: Colors.transparent,
-          surfaceTintColor: Constants.backgroundColor,
+          surfaceTintColor: Colors.white,
           elevation: 0,
         ),
 
@@ -39,46 +41,51 @@ class App extends StatelessWidget {
           indicatorColor: Colors.transparent,
           surfaceTintColor: Constants.backgroundColor,
           iconTheme: MaterialStatePropertyAll(
-            IconThemeData(color: Colors.white),
+            IconThemeData(color: Colors.black),
           ),
           labelTextStyle: MaterialStatePropertyAll(
-            TextStyle(color: Colors.white54),
+            TextStyle(color: Colors.black),
           ),
         ),
 
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: Colors.transparent,
-          unselectedItemColor: Colors.white,
+          unselectedItemColor: Constants.backgroundDarkColor,
           showSelectedLabels: false,
           showUnselectedLabels: false,
         ),
 
         // Text Theme
         textTheme: const TextTheme(
-          displayLarge: TextStyle(color: Colors.white),
-          displayMedium: TextStyle(color: Colors.white),
-          displaySmall: TextStyle(color: Colors.white),
-          headlineMedium: TextStyle(color: Colors.white),
-          headlineSmall: TextStyle(color: Colors.white),
-          headlineLarge: TextStyle(color: Colors.white),
-          titleMedium: TextStyle(color: Colors.white),
+          displayLarge: TextStyle(color: Constants.backgroundDarkColor),
+          displayMedium: TextStyle(color: Constants.backgroundDarkColor),
+          displaySmall: TextStyle(color: Constants.backgroundDarkColor),
+          headlineMedium: TextStyle(color: Constants.backgroundDarkColor),
+          headlineSmall: TextStyle(color: Constants.backgroundDarkColor),
+          headlineLarge: TextStyle(color: Constants.backgroundDarkColor),
+          titleLarge: TextStyle(color: Constants.backgroundDarkColor),
+          titleMedium: TextStyle(color: Constants.backgroundDarkColor),
+          titleSmall: TextStyle(color: Constants.backgroundDarkColor),
         ),
 
         // Input Theme
         inputDecorationTheme: InputDecorationTheme(
-          fillColor: const Color.fromARGB(94, 20, 41, 58),
+          fillColor: Constants.backgroundColor.withOpacity(0.1),
           filled: true,
-          focusedBorder: InputBorder.none,
-          hintStyle: const TextStyle(color: Colors.grey),
-          prefixIconColor: Colors.grey,
+          border: InputBorder.none,
+          hintStyle: const TextStyle(color: Colors.black45),
+          prefixIconColor: Colors.black45,
           contentPadding: EdgeInsets.all(Platform.isIOS ? 15 : 10),
         ),
       ),
 
-      darkTheme: ThemeData.dark().copyWith(
+      darkTheme: ThemeData(
+        primarySwatch: Colors.orange,
+
         useMaterial3: true,
 
-        // primarySwatch: Colors.orange,
+        primaryColor: Constants.mainAppColor,
+
         scaffoldBackgroundColor: const Color.fromARGB(255, 5, 9, 12),
 
         splashColor: Constants.backgroundColor,
@@ -104,6 +111,7 @@ class App extends StatelessWidget {
         ),
 
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          // selectedItemColor: Constants.mainAppColor,
           backgroundColor: Colors.transparent,
           unselectedItemColor: Colors.white,
           showSelectedLabels: false,
@@ -115,10 +123,12 @@ class App extends StatelessWidget {
           displayLarge: TextStyle(color: Colors.white),
           displayMedium: TextStyle(color: Colors.white),
           displaySmall: TextStyle(color: Colors.white),
+          headlineLarge: TextStyle(color: Colors.white),
           headlineMedium: TextStyle(color: Colors.white),
           headlineSmall: TextStyle(color: Colors.white),
-          headlineLarge: TextStyle(color: Colors.white),
+          titleLarge: TextStyle(color: Colors.white),
           titleMedium: TextStyle(color: Colors.white),
+          titleSmall: TextStyle(color: Colors.white),
         ),
 
         // Input Theme

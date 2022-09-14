@@ -1,3 +1,4 @@
+import 'package:coffee_app/src/is_dark_mode.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -24,23 +25,29 @@ class _HomePageState extends State<HomePage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        leadingWidth: 70,
+      appBar: PreferredSize(
+        preferredSize: Size(size.width, 60),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8),
+          child: AppBar(
+            leadingWidth: 60,
 
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: MenuButton(
-            onTap: () {},
-            removeMaterialColor: true,
-            icon: const Icon(
-              Ionicons.grid_outline,
-              color: Constants.iconColor,
+            leading: MenuButton(
+              onTap: () {},
+              removeMaterialColor: true,
+              icon: Icon(
+                Ionicons.grid_outline,
+                color: isDarkMode(context) ? Constants.iconColor : Colors.black,
+              ),
             ),
+
+            // User Icon
+            actions: [
+              AppBarUserAction(onTap: () {}),
+              const SizedBox(width: 10)
+            ],
           ),
         ),
-
-        // User Icon
-        actions: [AppBarUserAction(onTap: () {}), const SizedBox(width: 10)],
       ),
 
       // App Content

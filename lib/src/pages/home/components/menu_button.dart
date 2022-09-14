@@ -1,4 +1,5 @@
 import 'package:coffee_app/src/constants.dart';
+import 'package:coffee_app/src/is_dark_mode.dart';
 import 'package:flutter/material.dart';
 
 class MenuButton extends StatelessWidget {
@@ -23,10 +24,10 @@ class MenuButton extends StatelessWidget {
       color:
           removeMaterialColor ? Colors.transparent : Constants.backgroundColor,
       borderRadius: borderRadius ?? BorderRadius.circular(18),
-      // clipBehavior: Clip.hardEdge,
       child: InkWell(
         onTap: onTap,
-        highlightColor: Colors.black,
+        highlightColor:
+            isDarkMode(context) ? Colors.black : Constants.mainAppColor,
         borderRadius: borderRadius ?? BorderRadius.circular(18),
         child: Container(
           padding: padding,
@@ -35,11 +36,16 @@ class MenuButton extends StatelessWidget {
             border: Border.all(
               color: const Color.fromARGB(92, 34, 76, 101),
             ),
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromARGB(95, 17, 51, 79),
-                Color.fromARGB(39, 13, 25, 32),
-              ],
+            gradient: LinearGradient(
+              colors: isDarkMode(context)
+                  ? const [
+                      Color.fromARGB(95, 17, 51, 79),
+                      Color.fromARGB(39, 13, 25, 32),
+                    ]
+                  : const [
+                      Color.fromARGB(255, 216, 216, 216),
+                      Colors.white,
+                    ],
               begin: Alignment.centerLeft,
               end: Alignment.bottomCenter,
             ),

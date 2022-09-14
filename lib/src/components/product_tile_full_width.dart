@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:coffee_app/src/is_dark_mode.dart';
 import 'package:coffee_app/src/model/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,10 @@ class ProductTileFullWidth extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      margin: const EdgeInsets.only(right: 20),
+      margin: const EdgeInsets.symmetric(vertical: 5).copyWith(
+        right: 17,
+        left: 3,
+      ),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: onTap,
@@ -25,14 +29,13 @@ class ProductTileFullWidth extends StatelessWidget {
           padding: const EdgeInsets.all(13),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromARGB(95, 17, 51, 79),
-                Color.fromARGB(160, 31, 31, 31),
-                Color.fromARGB(142, 21, 21, 21),
-              ],
+            gradient: LinearGradient(
+              colors: isDarkMode(context)
+                  ? Constants.darkGradient
+                  : Constants.lightGradient,
               begin: Alignment.topLeft,
             ),
+            boxShadow: Constants.darkBoxShadow,
           ),
           width: size.width * 0.85,
           child: Row(
@@ -69,9 +72,11 @@ class ProductTileFullWidth extends StatelessWidget {
                             horizontal: 10,
                             vertical: 4,
                           ),
-                          decoration: const BoxDecoration(
-                            color: Colors.black54,
-                            borderRadius: BorderRadius.only(
+                          decoration: BoxDecoration(
+                            color: isDarkMode(context)
+                                ? Colors.black54
+                                : Colors.white54,
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                             ),
                           ),
@@ -106,87 +111,83 @@ class ProductTileFullWidth extends StatelessWidget {
 
               // Titles
               Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Product Title
+                      Text(
+                        product.title!,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(fontSize: 18),
+                      ),
+
+                      // Product Subtitle
+                      Expanded(
+                        child: Text(
+                          product.subtitle!,
+                          style: TextStyle(
+                              color: isDarkMode(context)
+                                  ? Colors.white60
+                                  : Colors.black54,
+                              fontSize: 14),
+                        ),
+                      ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Product Title
-                          Text(
-                            product.title!,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleLarge!
-                                .copyWith(fontSize: 18),
-                          ),
-
-                          const SizedBox(height: 5),
-
-                          // Product Subtitle
-                          Text(
-                            product.subtitle!,
-                            style: const TextStyle(
-                                color: Colors.white60, fontSize: 14),
-                          ),
-
-                          const SizedBox(height: 20),
-
+                          // Price and Currency
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Row(
-                                children: [
-                                  // Price
-                                  Text(
-                                    '\$',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleLarge!
-                                        .copyWith(
-                                          fontSize: 22,
-                                          color: Constants.mainAppColor,
-                                        ),
-                                  ),
-
-                                  const SizedBox(width: 4),
-
-                                  Text(
-                                    '${product.price}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleLarge!
-                                        .copyWith(fontSize: 22),
-                                  ),
-                                ],
+                              // Price
+                              Text(
+                                '\$',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge!
+                                    .copyWith(
+                                      fontSize: 22,
+                                      color: Constants.mainAppColor,
+                                    ),
                               ),
 
-                              // Add to cart button
-                              InkWell(
-                                onTap: () {},
-                                borderRadius: BorderRadius.circular(15),
-                                child: Container(
-                                  height: 45,
-                                  width: 45,
-                                  decoration: BoxDecoration(
-                                    color:
-                                        Constants.mainAppColor.withOpacity(0.8),
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: const Icon(
-                                    CupertinoIcons.add,
-                                    color: Colors.white,
-                                  ),
-                                ),
+                              const SizedBox(width: 4),
+
+                              Text(
+                                '${product.price}',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge!
+                                    .copyWith(fontSize: 22),
                               ),
                             ],
                           ),
+
+                          // Add to cart button
+                          InkWell(
+                            onTap: () {},
+                            borderRadius: BorderRadius.circular(15),
+                            child: Container(
+                              height: 45,
+                              width: 45,
+                              decoration: BoxDecoration(
+                                color: Constants.mainAppColor.withOpacity(0.8),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: const Icon(
+                                CupertinoIcons.add,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

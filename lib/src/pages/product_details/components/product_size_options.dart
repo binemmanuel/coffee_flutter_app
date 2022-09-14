@@ -35,6 +35,7 @@ class ProductSizeOptions extends StatelessWidget {
           height: 40,
           child: ListView.separated(
             itemCount: sizes.length,
+            padding: const EdgeInsets.symmetric(vertical: 3).copyWith(left: 5),
             scrollDirection: Axis.horizontal,
             itemBuilder: ((context, index) {
               final size = sizes[index];

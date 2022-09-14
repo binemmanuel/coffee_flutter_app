@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:coffee_app/src/is_dark_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -71,7 +72,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           // Back Button
                           MenuButton(
                             onTap: () => Navigator.pop(context),
-                            padding: const EdgeInsets.all(12),
+                            padding: const EdgeInsets.all(13),
                             icon: Icon(
                               Platform.isAndroid
                                   ? Ionicons.arrow_back
@@ -97,12 +98,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                   Positioned(
                     bottom: 0,
                     child: Container(
-                      height: size.height * 0.19,
-                      padding: const EdgeInsets.all(30),
+                      height: size.height * 0.2,
+                      padding: const EdgeInsets.all(20),
                       width: size.width,
-                      decoration: const BoxDecoration(
-                        color: Color.fromARGB(188, 0, 0, 0),
-                        boxShadow: [
+                      decoration: BoxDecoration(
+                        color: isDarkMode(context)
+                            ? const Color.fromARGB(188, 0, 0, 0)
+                            : const Color.fromARGB(19, 255, 255, 255),
+                        boxShadow: const [
                           BoxShadow(
                             color: Color.fromARGB(55, 255, 255, 255),
                             blurRadius: 9.0,
@@ -119,7 +122,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             blurStyle: BlurStyle.inner,
                           ),
                         ],
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(40),
                           topRight: Radius.circular(40),
                         ),
@@ -133,7 +136,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                             children: [
                               Text(
                                 widget.product.title!,
-                                style: Theme.of(context).textTheme.headlineMedium,
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium,
                               ),
                               Text(
                                 widget.product.subtitle!,
@@ -141,7 +145,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     .textTheme
                                     .headlineSmall!
                                     .copyWith(
-                                        fontSize: 16, color: Colors.white54),
+                                      fontSize: 16,
+                                      color: isDarkMode(context)
+                                          ? Colors.white54
+                                          : Colors.black54,
+                                    ),
                               ),
 
                               // Rate
@@ -170,8 +178,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                                             .textTheme
                                             .titleLarge!
                                             .copyWith(
-                                                color: Colors.white54,
-                                                fontSize: 15),
+                                              color: isDarkMode(context)
+                                                  ? Colors.white54
+                                                  : Colors.black54,
+                                              fontSize: 15,
+                                            ),
                                       ),
                                     ],
                                   ),
@@ -184,6 +195,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                           Column(
                             children: [
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: const [
                                   ProductTag(
                                     icon: 'assets/icons/coffee-beans.png',
@@ -259,7 +272,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     .titleLarge!
                                     .copyWith(
                                       fontSize: 14,
-                                      color: Colors.white.withOpacity(0.7),
+                                      color: isDarkMode(context)
+                                          ? Colors.white.withOpacity(0.7)
+                                          : Colors.black.withOpacity(0.7),
                                     ),
                               ),
                               RichText(
@@ -278,7 +293,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleLarge!
-                                          .copyWith(color: Colors.white),
+                                          .copyWith(
+                                            color: isDarkMode(context)
+                                                ? Colors.white
+                                                : Colors.black,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -289,19 +308,11 @@ class _ProductDetailsState extends State<ProductDetails> {
 
                         Expanded(
                           flex: 2,
-                          child: MainButton(
+                          child: BuyNowButton(
                             onTap: () {},
                             title: 'Buy Now',
                           ),
                         ),
-                        /* ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Constants.mainAppColor,
-                              foregroundColor: Colors.white,
-                              fixedSize: Size(200, 50)),
-                          child: const Text('Buy Now'),
-                        ), */
                       ],
                     ),
                   ),
@@ -321,8 +332,8 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 }
 
-class MainButton extends StatelessWidget {
-  const MainButton({
+class BuyNowButton extends StatelessWidget {
+  const BuyNowButton({
     super.key,
     required this.onTap,
     required this.title,

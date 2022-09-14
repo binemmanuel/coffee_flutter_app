@@ -1,3 +1,4 @@
+import 'package:coffee_app/src/is_dark_mode.dart';
 import 'package:coffee_app/src/model/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,10 @@ class ProductTile extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      margin: const EdgeInsets.only(right: 20),
+      margin: const EdgeInsets.symmetric(vertical: 5).copyWith(
+        right: 17,
+        left: 3,
+      ),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: onTap,
@@ -25,14 +29,13 @@ class ProductTile extends StatelessWidget {
           padding: const EdgeInsets.all(13),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromARGB(95, 17, 51, 79),
-                Color.fromARGB(160, 31, 31, 31),
-                Color.fromARGB(142, 21, 21, 21),
-              ],
+            gradient: LinearGradient(
+              colors: isDarkMode(context)
+                  ? Constants.darkGradient
+                  : Constants.lightGradient,
               begin: Alignment.topLeft,
             ),
+            boxShadow: Constants.darkBoxShadow,
           ),
           width: size.width / 2.25,
           child: Column(
@@ -71,9 +74,11 @@ class ProductTile extends StatelessWidget {
                           horizontal: 10,
                           vertical: 4,
                         ),
-                        decoration: const BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.only(
+                        decoration: BoxDecoration(
+                          color: isDarkMode(context)
+                              ? Colors.black54
+                              : Colors.white54,
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                           ),
                         ),
@@ -125,8 +130,12 @@ class ProductTile extends StatelessWidget {
                     // Product Subtitle
                     Text(
                       product.subtitle!,
-                      style:
-                          const TextStyle(color: Colors.white60, fontSize: 14),
+                      style: TextStyle(
+                        color: isDarkMode(context)
+                            ? Colors.white60
+                            : Colors.black54,
+                        fontSize: 14,
+                      ),
                     ),
                   ],
                 ),

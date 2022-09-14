@@ -34,25 +34,25 @@ class _ProductCategoryListState extends State<ProductCategoryList> {
 
     return Column(
       children: [
-        // Category Listing
         CategoryOptions(
-          onChange: (value) {
-            selectedCategory = value;
-
-            demoProducts =
-                ProductService.getProductByCategory(selectedCategory);
-
-            setState(() {});
-          },
+          onChange: handleCategoryChange,
           options: demoCategories,
           value: selectedCategory,
         ),
 
-        SizedBox(height: size.height * 0.03),
+        SizedBox(height: size.height * 0.02),
 
         // Product Listing
         ProductsByCategory(products: demoProducts),
       ],
     );
+  }
+
+  void handleCategoryChange(String value) {
+    selectedCategory = value;
+
+    demoProducts = ProductService.getProductByCategory(selectedCategory);
+
+    setState(() {});
   }
 }

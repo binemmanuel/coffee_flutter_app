@@ -1,3 +1,4 @@
+import 'package:coffee_app/src/is_dark_mode.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -24,18 +25,29 @@ class ProductSizeOption extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color:
-              isSelected ? Colors.transparent : Constants.backgroundDarkColor,
-          border: Border.all(
-              color: isSelected ? Constants.mainAppColor : Colors.transparent),
-          borderRadius: BorderRadius.circular(10),
-        ),
+            color: isSelected
+                ? Colors.transparent
+                : isDarkMode(context)
+                    ? Constants.backgroundDarkColor
+                    : Colors.white,
+            border: Border.all(
+                color:
+                    isSelected ? Constants.mainAppColor : Colors.transparent),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: isSelected
+                ? []
+                : const [
+                    BoxShadow(
+                        color: Color.fromARGB(41, 0, 0, 0), blurRadius: 5),
+                  ]),
         child: Text(
           size,
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
               color: isSelected
                   ? Constants.mainAppColor
-                  : Colors.white.withOpacity(0.8),
+                  : isDarkMode(context)
+                      ? Colors.white.withOpacity(0.8)
+                      : Colors.black.withOpacity(0.8),
               fontSize: 18),
         ),
       ),
