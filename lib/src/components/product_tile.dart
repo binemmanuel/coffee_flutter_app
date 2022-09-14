@@ -120,7 +120,7 @@ class ProductTile extends StatelessWidget {
                           .copyWith(fontSize: 18),
                     ),
 
-                    const SizedBox(height: 5),
+                    const SizedBox(height: 2.5),
 
                     // Product Subtitle
                     Text(
@@ -136,8 +136,9 @@ class ProductTile extends StatelessWidget {
 
               // Footer
               Expanded(
-                child: Padding(
+                child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  alignment: Alignment.bottomCenter,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
